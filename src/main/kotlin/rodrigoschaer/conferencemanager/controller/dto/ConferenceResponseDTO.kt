@@ -1,7 +1,6 @@
 package rodrigoschaer.conferencemanager.controller.dto
 
 import rodrigoschaer.conferencemanager.domain.model.Conference
-import rodrigoschaer.conferencemanager.repository.dbo.ConferenceDBO
 import java.util.UUID
 
 data class ConferenceResponseDTO(

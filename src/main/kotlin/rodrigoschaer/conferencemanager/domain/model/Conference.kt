@@ -1,6 +1,5 @@
 package rodrigoschaer.conferencemanager.domain.model
 
-import jakarta.persistence.Column
 import rodrigoschaer.conferencemanager.controller.dto.ConferenceDTO
 import rodrigoschaer.conferencemanager.repository.dbo.ConferenceDBO
 import java.util.UUID
