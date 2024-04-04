@@ -1,4 +1,4 @@
-package rodrigoschaer.conferencemanager.domain.entity
+package rodrigoschaer.conferencemanager.repository.dbo
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
@@ -6,14 +6,13 @@ import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType.IDENTITY
 import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
-import jakarta.persistence.ManyToOne
 import jakarta.persistence.OneToOne
 import jakarta.persistence.Table
 import java.time.LocalDateTime
 
 @Entity
 @Table(name = "check_ins")
-data class CheckIn (
+data class CheckInDBO (
     @Id
     @Column(nullable = false)
     @GeneratedValue(strategy = IDENTITY)
@@ -24,5 +23,5 @@ data class CheckIn (
 
     @OneToOne
     @JoinColumn(nullable = false, name="attendee_id")
-    var attendee: Attendee,
+    var attendee: AttendeeDBO,
 )

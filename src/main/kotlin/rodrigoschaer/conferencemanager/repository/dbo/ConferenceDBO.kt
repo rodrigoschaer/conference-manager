@@ -1,18 +1,20 @@
-package rodrigoschaer.conferencemanager.domain.entity
+package rodrigoschaer.conferencemanager.repository.dbo
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType.UUID
+import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Table
+import rodrigoschaer.conferencemanager.domain.model.Conference
+import java.util.UUID
 
 @Entity
 @Table(name = "conferences")
-data class Conference (
+data class ConferenceDBO (
     @Id
     @Column(nullable = false)
-    @GeneratedValue(strategy = UUID)
+    @GeneratedValue(strategy = GenerationType.UUID)
     var id: String,
 
     @Column(nullable = false)
@@ -26,4 +28,12 @@ data class Conference (
 
     @Column(nullable = false, name = "maximum_attendees")
     var maximumAttendees: Int
-)
+){
+    fun toModel(): Conference = Conference(
+        id = UUID.fromString(id),
+        title = title,
+        detail = detail,
+        slug = slug,
+        maximumAttendees = maximumAttendees
+    )
+}
